@@ -33,21 +33,20 @@ public class A1Home {
                 System.out.println("Куки отображаются!");
                 driver.findElement(cancelCookies).click();
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Куки не требуются!");
         }
     }
 
-    public void scrollEmailSubscriptionForm (WebElement emailSubscriptionForm) {
+    public void scrollEmailSubscriptionForm(WebElement emailSubscriptionForm) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", emailSubscriptionForm);
     }
 
-    public boolean visibleEmailSubscriptionForm () {
+    public boolean visibleEmailSubscriptionForm() {
         WebElement emailSubscriptionForm = driver.findElement(emailForm);
         scrollEmailSubscriptionForm(emailSubscriptionForm);
         if (!emailSubscriptionForm.isDisplayed()) {
-         scrollEmailSubscriptionForm(emailSubscriptionForm);
+            scrollEmailSubscriptionForm(emailSubscriptionForm);
         }
         return emailSubscriptionForm.isDisplayed();
     }
@@ -57,19 +56,18 @@ public class A1Home {
         inputEmail.sendKeys(email);
     }
 
-    public void clickEmailButton () {
+    public void clickEmailButton() {
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(emailButton));
         scrollEmailSubscriptionForm(button);
         button.click();
     }
 
-    public String getSuccessfulSubscription () {
+    public String getSuccessfulSubscription() {
         WebElement titleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(successfulSubscriptionTitle));
         WebElement textElement = wait.until(ExpectedConditions.visibilityOfElementLocated(successfulSubscriptionText));
 
         String result = titleElement.getText();
         result += "\n" + textElement.getText();
-        return  result;
+        return result;
     }
 }
-

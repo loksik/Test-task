@@ -6,7 +6,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class WebDriverSingleton {
     private static WebDriver instance;
 
-    private WebDriverSingleton() {}
+    private WebDriverSingleton() {
+    }
 
     public static WebDriver getInstance() {
         if (instance == null) {

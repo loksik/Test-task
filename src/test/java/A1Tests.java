@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.A1Home;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class A1Tests {
 
@@ -22,7 +21,6 @@ public class A1Tests {
         driver.get("https://www.a1.by/");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         a1Home = new A1Home(driver, wait);
-        //driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         a1Home.targetCookies();
     }
 
